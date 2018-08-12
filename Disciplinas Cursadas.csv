@@ -1,0 +1,40 @@
+codigo,creditos,periodo,conceito,situacao,ano,disciplina,categoria
+BIQ0602-13,3,3,F,Reprovado,2013,Estrutura e Dinamica Social,Obrigatoria
+MCTA018-13,4,3,B,Aprovado,2013,Programacao Orientada a Objetos,Opcao Limitada
+BCJ0208-13,5,1,C,Aprovado,2014,Fenomenos Mecanicos,Obrigatoria
+BCM0506-13,3,1,B,Aprovado,2014,Comunicacao e Redes,Obrigatoria
+MCZA005-13,4,1,C,Aprovado,2014,Banco de Dados de Apoio a Tomada de Decisao,Livre Escolha
+BCJ0205-13,4,2,C,Aprovado,2014,Fenomenos Termicos,Obrigatoria
+BIQ0602-13,3,2,B,Aprovado,2014,Estrutura e Dinamica Social,Obrigatoria
+ESTO002-13,3,3,D,Aprovado,2014,Engenharia Economica,Opcao Limitada
+ESTO006-13,4,3,C,Aprovado,2014,Materiais e Suas Propriedades,Opcao Limitada
+MCZA019-13,4,3,O,Repr.Freq,2014,Programacao para Web,Livre Escolha
+ESTO008-13,4,1,B,Aprovado,2015,Mecanica dos Solidos I,Opcao Limitada
+ESZI001-13,2,1,B,Aprovado,2015,Informacao e Sociedade,Livre Escolha
+MCTA001-13,4,1,C,Aprovado,2015,Algoritmos e Estruturas de Dados I,Opcao Limitada
+BCN0402-13,4,2,C,Aprovado,2015,Funcoes de Uma Variavel,Obrigatoria
+BIN0406-13,3,2,F,Reprovado,2015,Introducao a Probabilidade e a Estatistica,Obrigatoria
+MCZA019-13,4,2,C,Aprovado,2015,Programacao para Web,Livre Escolha
+BCK0103-13,3,3,F,Reprovado,2015,Fisica Quantica,Obrigatoria
+BCN0405-13,4,3,D,Aprovado,2015,Introducao as Equacoes Diferenciais Ordinarias,Obrigatoria
+MCTA006-13,4,3,F,Reprovado,2015,Circuitos Digitais,Opcao Limitada
+BCK0104-15,3,1,C,Aprovado,2016,Interacoes Atomicas e Moleculares,Obrigatoria
+BCN0407-13,4,1,C,Aprovado,2016,Funcoes de Varias Variaveis,Obrigatoria
+MCZA032-14,4,1,A,Aprovado,2016,Introducao a Programacao de Jogos,Livre Escolha
+BCJ0203-15,5,2,C,Aprovado,2016,Fenomenos Eletromagneticos,Obrigatoria
+BIN0406-15,3,2,B,Aprovado,2016,Introducao a Probabilidade e a Estatistica,Obrigatoria
+MCTA008-13,4,2,O,Repr.Freq,2016,Computacao Grafica,Opcao Limitada
+BCK0103-15,3,3,D,Aprovado,2016,Fisica Quantica,Obrigatoria
+BCS0002-15,2,3,B,Aprovado,2016,Projeto Dirigido,Obrigatoria
+ESTO003-13,4,3,B,Aprovado,2016,Fundamentos de Desenho e Projeto,Opcao Limitada
+ESTO900-13,3,3,B,Aprovado,2016,Engenharia Unificada I,Opcao Limitada
+ESTO001-13,4,1,F,Reprovado,2017,Circuitos Eletricos e Fotonica,Opcao Limitada
+MCTA033-15,4,1,B,Aprovado,2017,Engenharia de Software,Opcao Limitada
+MCTB009-13,4,1,C,Aprovado,2017,Calculo Numerico,Opcao Limitada
+ESTO017-17,4,2,B,Aprovado,2017,Metodos Experimentais em Engenharia,Opcao Limitada
+MCTB001-17,6,2,D,Aprovado,2017,algebra Linear,Opcao Limitada
+MCZA006-17,4,2,C,Aprovado,2017,Computacao Evolutiva e Conexionista,Opcao Limitada
+ESTA002-17,5,3,C,Aprovado,2017,Circuitos Eletricos I,Opcao Limitada
+ESTI003-17,4,3,F,Reprovado,2017,Transformadas em Sinais e Sistemas Lineares,Opcao Limitada
+ESTI013-17,4,3,C,Aprovado,2017,Sistemas Microprocessados,Opcao Limitada
+MCTA004-17,4,3,C,Aprovado,2017,Arquitetura de Computadores,Opcao Limitada
