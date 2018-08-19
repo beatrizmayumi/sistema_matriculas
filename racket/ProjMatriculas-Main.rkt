@@ -3,7 +3,7 @@
 (require csv-reading);Pacote para manipualação de arquivos CSV...> raco pkg install csv-reading
 
 (define (main args)
-  (cond [(< (vector-length args) 2) 
+  (cond [(< (vector-length args) 3) 
          (display "Informar: <Arquivo contendo Oferta de disciplinas.csv> <Arquivo contendo Disciplinas já Cursadas.csv>\n"
                   (current-error-port))
          (exit 1)])
@@ -168,5 +168,5 @@
 ;(main (current-command-line-arguments))
 
 
-(define v (vector "Oferta Disciplicas (BCT-BCC).csv" "Disciplinas Cursadas.csv"))
+(define v (vector "Oferta Disciplicas (BCT-BCC).csv" "Disciplinas Cursadas.csv" "Base_disciplinas"))
 (main v)
