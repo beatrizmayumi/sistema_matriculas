@@ -195,5 +195,5 @@
 
 ;(main (current-command-line-arguments))
 
-(define v (vector "Oferta Disciplicas (BCT-BCC).csv" "Disciplinas Cursadas.csv" "Base_disciplinas.csv"))
+(define v (vector "Oferta Disciplinas (BCT-BCC).csv" "Disciplinas Cursadas.csv" "Base_obrigatorias_BCC.csv"))
 (main v)
