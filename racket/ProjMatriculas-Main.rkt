@@ -26,6 +26,14 @@
        (quote-char                 . #f)
        )))
 
+  ;PARAMETROS PARA LEITURA DO ARQUIVO CSV CONTENDO AS DISCIPLINAS DA GRADE ATUAL DO BCC
+  (define make-csv-reader-grade
+    (make-csv-reader-maker
+     '((newline-type 'lf)
+       (separator-chars            #\,)
+       (quote-char                 . #f)
+       )))
+
 
   
   ;ARQUIVO CSV CONTENDO AS DISCIPLINAS OFERTADAS 
@@ -36,6 +44,11 @@
   ;ARQUIVO CSV CONTENDO AS DISCIPLINAS CURSADAS 
   ;(define next-row-cur
   ;  (make-csv-reader-cursadas (open-input-file (vector-ref args 1))))
+
+
+  ;ARQUIVO CSV CONTENDO AS DISCIPLINAS DA GRADE 
+  ;(define next-row-cur
+  ;  (make-csv-reader-cursadas (open-input-file (vector-ref args 2))))
 
  
   ;ARQUIVO CSV QUE IRÁ CONTER O ARQUIVO DE ENTRADA APÓS SER FILTRADO: O FILTRO ROMEVERÁ AS DISCIPLINAS JÁ E AS DISCIPLINAS FORA DO CAMPUS E PERÍODO DESEJADO
@@ -56,6 +69,12 @@
   (define periodo (read-line))
   (display (cond [(= (string->number periodo) 1) "Selecionado: Diurno \n"]
                  [else "Selecionado: Noturno \n"]) )
+  (newline)
+  (newline)
+  (printf "Selecione a Prioridade: \n [1]-Disciplinas Menos Avançadas \n [2]-Número de Créditos\n")
+  (define prioridade (read-line))
+  (display (cond [(= (string->number periodo) 1) "Selecionado: Disciplinas Menos Avançadas \n"]
+                 [else "Selecionado: Número de Créditos \n"]) )
   (newline)
   (newline)
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; FIM MENU ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
