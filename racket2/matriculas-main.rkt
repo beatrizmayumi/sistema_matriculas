@@ -1,11 +1,10 @@
-
 #!/usr/bin/env racket
 #lang racket
 (require csv-reading); pacote para manipulacao de arquivos CSV...> raco pkg install csv-reading
 (require "menu.rkt")
 
 (define (main args)
-  (cond [(< (vector-length args) 3) 
+  (cond [(< (vector-length args) 4) 
          (display "Informar: <Arquivo contendo Oferta de disciplinas.csv> <Arquivo contendo Disciplinas ja Cursadas.csv>\n"
                   (current-error-port))
          (exit 1)])
@@ -36,6 +35,14 @@
        (quote-char                 . #f)
        )))
 
+    ; PARAMETROS PARA LEITURA DO ARQUIVO CSV CONTENDO AS DISCIPLINAS DA GRADE ATUAL DO BCT
+  (define make-csv-reader-grade2
+    (make-csv-reader-maker
+     '((newline-type 'lf)
+       (separator-chars            #\,)
+       (quote-char                 . #f)
+       )))
+
     ; PARAMETROS PARA LEITURA DO ARQUIVO CSV CONTENDO AS DISCIPLINAS FILTRADAS
   (define make-csv-reader-filtro
     (make-csv-reader-maker
@@ -55,9 +62,13 @@
     (make-csv-reader-cursadas (open-input-file (vector-ref args 1))))
 
 
-  ; ARQUIVO CSV CONTENDO AS DISCIPLINAS DA GRADE 
+  ; ARQUIVO CSV CONTENDO AS DISCIPLINAS DA GRADE DO BCC
   (define next-row-grade
     (make-csv-reader-grade (open-input-file (vector-ref args 2))))
+
+    ; ARQUIVO CSV CONTENDO AS DISCIPLINAS DA GRADE DO BCT
+  (define next-row-grade2
+    (make-csv-reader-grade2 (open-input-file (vector-ref args 3))))
 
     ; ARQUIVO CSV CONTENDO AS DISCIPLINAS FILTRADAS 
   (define next-row-filtro
@@ -71,6 +82,10 @@
 
   (define saida2
     (open-output-file "Arquivo-filtradoBCC.csv" ;(vector-ref args 2)
+                      #:exists 'replace))
+
+    (define saida3
+    (open-output-file "Arquivo-filtradoBCT.csv" ;(vector-ref args 3)
                       #:exists 'replace))
                       
   
@@ -133,6 +148,17 @@
             [(equal? (seventh linha-cursada-grade) (second linha))#t ]
             [else (loop (next-row-grade))])))
 
+    ; RECEBE UMA A UMA AS DISCIPLINAS JA CURSADAS E COMPARA COM AS DA GRADE DE DISCIPLINAS
+    (define (cursada-grade2? linha)
+    (define port-in-grade2 (open-input-file (vector-ref args 2)))
+    (define next-row-grade2
+      (make-csv-reader-grade2 port-in-grade2))
+
+    (let loop ([linha-cursada-grade2 (next-row-grade2)] )
+      (cond [(equal? linha-cursada-grade2 '()) (close-input-port port-in-grade2) #f]
+            [(equal? (seventh linha-cursada-grade2) (second linha))#t ]
+            [else (loop (next-row-grade2))])))
+
   ; A partir dos parametros informados pelo usuario, filtra apenas as linhas desejadas e inclui no arquivo de saida
     (define (gera-disciplinas-possiveis-bcc linhas)
     (let loop ([linha (linhas)])
@@ -141,12 +167,22 @@
              (displayln (string-join (map ~a (formata-lista linha)) " ") saida2)(loop (next-row-grade))] 
             [else (loop (next-row-grade))])))
 
+    ; A partir dos parametros informados pelo usuario, filtra apenas as linhas desejadas e inclui no arquivo de saida
+    (define (gera-disciplinas-possiveis-bct linhas)
+    (let loop ([linha (linhas)])
+      (cond [(equal? linha '()) (print "GERADO 'Arquivo-filtradoBCC.csv' CONTENDO APENAS DISCIPLINAS DO BCC EM POTENCIAL")]
+            [(busca-no-filtro? linha)
+             (displayln (string-join (map ~a (formata-lista linha)) " ") saida3)(loop (next-row-grade2))] 
+            [else (loop (next-row-grade2))])))
+
   
 
   (gera-possiveis-disciplinas next-row (pega-campus-selecionado campus)(pega-periodo-selecionado periodo))
   (gera-disciplinas-possiveis-bcc next-row-grade)
+  (gera-disciplinas-possiveis-bct next-row-grade2)
   (close-output-port saida)
   (close-output-port saida2)
+  (close-output-port saida3)
 
 
   ; ARQUIVO CSV CONTENDO AS DISCIPLINAS APOS FILTRO INICIAL 
@@ -155,6 +191,9 @@
 
   (define next-row-filtrabcc
     (make-csv-reader (open-input-file "Arquivo-filtradoBCC.csv")))
+  
+  (define next-row-filtrabct
+    (make-csv-reader (open-input-file "Arquivo-filtradoBCT.csv")))
   
   (void))
 
@@ -197,5 +236,5 @@
 
 ;(main (current-command-line-arguments))
 
-(define v (vector "Oferta Disciplinas (BCT-BCC).csv" "Disciplinas Cursadas.csv" "Base_obrigatorias_BCC.csv"))
+(define v (vector "Oferta Disciplinas (BCT-BCC).csv" "Disciplinas Cursadas.csv" "Base_obrigatorias_BCC.csv" "Base_obrigatorias_BCT.csv"))
 (main v)
