@@ -42,13 +42,13 @@
 
   
   ;ARQUIVO CSV CONTENDO AS DISCIPLINAS CURSADAS 
-  ;(define next-row-cur
-  ;  (make-csv-reader-cursadas (open-input-file (vector-ref args 1))))
+  (define next-row-cur
+    (make-csv-reader-cursadas (open-input-file (vector-ref args 1))))
 
 
   ;ARQUIVO CSV CONTENDO AS DISCIPLINAS DA GRADE 
-  ;(define next-row-cur
-  ;  (make-csv-reader-cursadas (open-input-file (vector-ref args 2))))
+  (define next-row-grade
+    (make-csv-reader-cursadas (open-input-file (vector-ref args 2))))
 
  
   ;ARQUIVO CSV QUE IRÁ CONTER O ARQUIVO DE ENTRADA APÓS SER FILTRADO: O FILTRO ROMEVERÁ AS DISCIPLINAS JÁ E AS DISCIPLINAS FORA DO CAMPUS E PERÍODO DESEJADO
@@ -168,5 +168,5 @@
 ;(main (current-command-line-arguments))
 
 
-(define v (vector "Oferta Disciplicas (BCT-BCC).csv" "Disciplinas Cursadas.csv" "Base_disciplinas"))
+(define v (vector "Oferta Disciplicas (BCT-BCC).csv" "Disciplinas Cursadas.csv" "Base_disciplinas.csv"))
 (main v)
