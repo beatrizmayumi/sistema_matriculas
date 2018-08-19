@@ -120,6 +120,7 @@
              (displayln (string-join (map ~a (formata-lista linha)) " ") saida)(loop (next-row))]  ;ESCREVE NO ARQUIVO FILTRADO
             [else (loop (next-row))])))
   
+  (newline)
   
   ; RECEBE UMA A UMA AS DISCIPLINAS JA CURSADAS E COMPARA COM AS DA GRADE DE DISCIPLINAS
     (define (cursada-grade? linha)
