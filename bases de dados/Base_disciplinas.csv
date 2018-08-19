@@ -1,0 +1,72 @@
+Codigo,Disciplina,Creditos,Recomendacao1,Recomendacao2,Recomendacao3,Recomendacao4,Tipo,Quadrimestre
+BIS0005-15,Bases Computacionais da Ciencia,2,,,,,Obrigatoria,1
+BCS0001-15,Base Experimental das Ciencias Naturais,3,,,,,Obrigatoria,1
+BIK0102-15,Estrutura da Materia,3,,,,,Obrigatoria,1
+BIS0003-15,Bases Matematicas,4,,,,,Obrigatoria,1
+BIJ0207-15,Bases Conceituais da Energia,2,,,,,Obrigatoria,1
+BIL0304-15,Evolucao e Diversificacao da Vida na Terra,3,,,,,Obrigatoria,1
+BCM0504-15,Natureza da Informacao,3,Bases Computacionais da Ciencia,,,,Obrigatoria,2
+BCJ0204-15,Fenomenos Mecanicos,5,Geometria Analitica,Funcoes de Uma Variavel,,,Obrigatoria,2
+BCN0404-15,Geometria Analitica,3,Bases Matematicas,,,,Obrigatoria,2
+BCN0402-15,Funcoes de uma Variavel,4,Bases Matematicas,,,,Obrigatoria,2
+BCL0306-15,Biodiversidade: Interacoes entre organismos e ambiente,3,,,,,Obrigatoria,2
+BCM0505-15,Processamento da Informacao,5,Bases Computacionais da Ciencia,,,,Obrigatoria,3
+BCJ0205-15,Fenomenos Termicos,4,Estrutura da Materia,Fenomenos Mecanicos,Funcoes de uma Variavel,,Obrigatoria,3
+BCN0407-15,Funcoes de Varias Variaveis,4,Geometria Analitica,Funcoes de Uma Variavel,,,Obrigatoria,3
+BCL0307-15,Transformacoes Quimicas,5,Estrutura da Materia,,,,Obrigatoria,3
+BCM0506-15,Comunicacao e Redes,3,Processamento da Informacao,,,,Obrigatoria,4
+BCJ0203-15,Fenomenos Eletromagneticos,5,Fenomenos Mecanicos,Geometria Analitica,Introducao às Equacoes Diferenciais,,Obrigatoria,4
+BIN0406-15,Introducao a Probabilidade e a Estatistica,3,Funcoes de uma Variavel,,,,Obrigatoria,4
+BCN0405-15,Introducao as Equacoes Diferenciais Ordinarias,4,Funcoes de Varias Variaveis,,,,Obrigatoria,4
+BIR0004-15,Bases Epistemologicas da Ciencia Moderna,3,,,,,Obrigatoria,4
+BCK0103-15,Fisica Quantica,3,Estrutura da Materia,Fenomenos Mecanicos,Fenomenos Termicos,Fenomenos Eletromagneticos,Obrigatoria,5
+BCL0308-15,"Bioquimica: estrutura, propriedade e funcoes de biomoleculas",5,Estrutura da Materia,Transformacoes Quimicas,,,Obrigatoria,5
+BIQ0602-15,Estrutura e Dinamica Social,3,,,,,Obrigatoria,5
+NHI2049-13,Logica Basica,4,,,,,Obrigatoria,5
+MCTA028-15,Programacao Estruturada,4,Processamento da Informacao,,,,Obrigatoria,5
+BCK0104-15,Interacoes Atomicas e Moleculares,3,Transformacoes Quimicas,Fisica Quantica,,,Obrigatoria,6
+BIR0603-15,"Ciencia, Tecnologia e Sociedade",3,,,,,Obrigatoria,6
+MCTA006-13,Circuitos Digitais,4,,,,,Obrigatoria,6
+MCTA001-13,Algoritmos e Estruturas de Dados I,4,Programacao Estruturada,,,,Obrigatoria,6
+MCTB019-13,Matematica Discreta,4,Funcoes de uma variavel,,,,Obrigatoria,6
+MCTA024-13,Sistemas Digitais,4,Circuitos Digitais,,,,Obrigatoria,7
+MCTA003-13,Analise de Algoritmos,4,Matematica Discreta,Algoritmos e Estruturas de Dados I,,,Obrigatoria,7
+MCTA018-13,Programacao Orientada a Objetos,4,Processamento da Informacao,Programacao estruturada,,,Obrigatoria,7
+MCTB001-13,Algebra Linear,6,Geometria Analitica,,,,Obrigatoria,7
+MCTA009-13,"Computadores, etica e Sociedade",2,,,,,Obrigatoria,7
+MCTA004-13,Arquitetura de Computadores,4,Circuitos Digitais,Sistemas Digitais,,,Obrigatoria,8
+MCTA002-13,Algoritmos e Estruturas de Dados II,4,Algoritmos e Estruturas de Dados I,,,,Obrigatoria,8
+MCTA027-13,Teoria dos Grafos,4,Matematica Discreta,Processamento da Informacao,Algoritmos e Estruturas de Dados I,,Obrigatoria,8
+MCTA005-13,Banco de Dados,4,Algoritmos e Estruturas de Dados I,,,,Obrigatoria,8
+MCTAO14-13,Inteligencia Artificial,4,Logica Basica,Processamento da Informacao,,,Obrigatoria,8
+MCTA022-13,Redes de Computadores,4,Processamento da Informacao,,,,Obrigatoria,9
+MCTA026-13,Sistemas Operacionais,5,Arquitetura de Computadores,,,,Obrigatoria,9
+MCTA015-13,Linguagens Formais e Automata,4,Programacao Estruturada,,,,Obrigatoria,9
+MCTA010-13,Engenharia de Software,4,Processamento da Informacao,,,,Obrigatoria,9
+BCS0002-15,Projeto Dirigido,2,Todas as disciplinas obrigatorias do BC&T.,,,,Obrigatoria,9
+MCTA019-13,Projeto de Graduacao em Computacao I,8,,,,,Obrigatoria,10
+MCTA025-13,Sistemas Distribuidos,4,Redes de Computadores,,,,Obrigatoria,10
+MCTA007-13,Compiladores,4,Linguagens Formais e Automata,Algoritmos e Estruturas de Dados I,,,Obrigatoria,10
+MCTA016-13,Paradigmas de Programacao,4,Processamento da Informacao,Programacao Orientada a Objetos,,,Obrigatoria,10
+MCTA020-13,Projeto de Graduacao em Computacao II,8,Projeto de Graduacao em Computacao I,,,,Obrigatoria,11
+MCTA008-13,Computacao Grafica,4,Algoritmos e Estruturas de Dados I,Geometria Analitica,,,Obrigatoria,11
+MCTA017-13,Programacao Matematica,4,Algebra Linear,Funcoes de uma Variavel,,,Obrigatoria,11
+MCTA021-13,Projeto de Graduacao em Computacao III,8,Projeto de Graduacao em Computacao I,Projeto de Graduacao em Computacao II,,,Obrigatoria,12
+MCTA023-13,Seguranca de Dados,4,Redes de Computadores,Algoritmo e Estrutura de Dados I,,,Obrigatoria,12
+MCZA030-13,Vida Artificial na Computacao,2,,,,,Limitada,100
+MCTB009-13,Calculo Numerico,4,Funcoes de uma variavel,Processamento da Informacao,,,Limitada,100
+MCZA001-13,Analise de Projetos,2,,,,,Limitada,100
+MCZA006-13,Computacao Evolutiva e Conexionista,4,Inteligencia Artificial,,,,Limitada,100
+MCZA019-13,Programacao para Web,4,Programacao Orientada a Objetos,Banco de Dados,,,Limitada,100
+MCZA08-13,Interacao Humano-Computador,4,Processamento da Informacao,,,,Limitada,100
+MCZA017-13,Processamento de Linguagem Natural,4,Inteligencia Artificial,,,,Limitada,100
+MCZA012-13,Laboratorio de Sistemas Operacionais,4,Sistemas Operacionais,,,,Limitada,100
+MCZA018-13,Processamento Digital de Imagens,4,,,,,Limitada,100
+MCZA016-13,Gestao de Projetos de Software,4,Processamento da Informacao,Engenharia de Software,,,Limitada,100
+MCZA029-13,Sistemas Multimidia,4,Computacao Grafica,,,,Limitada,100
+MCZA007-13,Empreendedorismo e Desenvolvimento de Negocios,4,,,,,Limitada,100
+MCZA010-3,Laboratorio de Engenharia de Software,4,Engenharia de Software,,,,Limitada,100
+MCZB027-13,Principios de Simulacao Matematica,4,Processamento da Informacao,,,,Limitada,100
+MCZA022-13,Projeto Interdisciplinar,4,,,,,Limitada,100
+MCZA02613-13,Sistema de Gerenciamento de Banco de Dados,4,Banco de Dados,,,,Limitada,100
+MCZA027-15,Sistemas de Informacao,4,,,,,Limitada,100
