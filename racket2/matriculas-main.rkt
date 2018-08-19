@@ -2,6 +2,7 @@
 #!/usr/bin/env racket
 #lang racket
 (require csv-reading); pacote para manipulacao de arquivos CSV...> raco pkg install csv-reading
+(require "menu.rkt")
 
 (define (main args)
   (cond [(< (vector-length args) 3) 
@@ -59,30 +60,7 @@
   (define saida2
     (open-output-file "Arquivo-filtradoBCC.csv" ;(vector-ref args 2)
                       #:exists 'replace))
-
-
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; MENU ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OBTENDO INFORMACOES DO USUARIO
-  (printf "Selecione o CAMPUS: \n [1]-Santo André \n [2]-São Bernardo\n")
-  (define campus (read-line))
-  (display (cond [(= (string->number campus) 1) "Selecionado: SA \n"]
-                 [else "Selecionado: SBC \n"]) )
-  (newline)
-  (newline)
-  (printf "Selecione o Período: \n [1]-Diurno \n [2]-Noturno\n")
-  (define periodo (read-line))
-  (display (cond [(= (string->number periodo) 1) "Selecionado: Diurno \n"]
-                 [else "Selecionado: Noturno \n"]) )
-  (newline)
-  (newline)
-  (printf "Selecione a Prioridade: \n [1]-Disciplinas Menos Avançadas \n [2]-Número de Créditos\n")
-  (define prioridade (read-line))
-  (display (cond [(= (string->number periodo) 1) "Selecionado: Disciplinas Menos Avançadas \n"]
-                 [else "Selecionado: Número de Créditos \n"]) )
-  (newline)
-  (newline)
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; FIM MENU ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                      
   
   ; UMA VEZ COM AS INFORMACOES DO USUARIO, JA PODEMOS FILTRAR AS DISCIPLINAS POSSIVEIS DE SEERM CURSADAS
   (define proc
