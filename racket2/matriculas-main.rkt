@@ -36,6 +36,14 @@
        (quote-char                 . #f)
        )))
 
+    ; PARAMETROS PARA LEITURA DO ARQUIVO CSV CONTENDO AS DISCIPLINAS FILTRADAS
+  (define make-csv-reader-filtro
+    (make-csv-reader-maker
+     '((newline-type 'lf)
+       (separator-chars            #\,)
+       (quote-char                 . #f)
+       )))
+
   
   ; ARQUIVO CSV CONTENDO AS DISCIPLINAS OFERTADAS 
   (define next-row
@@ -50,6 +58,10 @@
   ; ARQUIVO CSV CONTENDO AS DISCIPLINAS DA GRADE 
   (define next-row-grade
     (make-csv-reader-grade (open-input-file (vector-ref args 2))))
+
+    ; ARQUIVO CSV CONTENDO AS DISCIPLINAS FILTRADAS 
+  (define next-row-filtro
+    (make-csv-reader-filtro (open-input-file (vector-ref args 1))))
 
  
   ; ARQUIVO CSV QUE CONTERA O ARQUIVO DE ENTRADA APOS SER FILTRADO: O FILTRO REMOVERA AS DISCIPLINAS JA CURSADAS E AS DISCIPLINAS FORA DO CAMPUS E PERIODO DESEJADO
@@ -88,6 +100,16 @@
       (cond [(equal? linha-cursada '()) (close-input-port port-in-cursadas) #f]
             [(equal? (seventh linha-cursada) (second linha))#t ]
             [else (loop (next-row-cursadas))])))
+
+   (define(busca-no-filtro? linha)
+    (define port-in-filtro (open-input-file (vector-ref args 1)))
+    (define next-row-filtro
+      (make-csv-reader-filtro port-in-filtro))
+     
+    (let loop ([linha-filtro (next-row-filtro)] )
+      (cond [(equal? linha-filtro '()) (close-input-port port-in-filtro) #f]
+            [(equal? (seventh linha-filtro) (second linha))#t ]
+            [else (loop (next-row-filtro))])))
   
   
   ; A partir dos parametros informados pelo usuario, filtra apenas as linhas desejadas e inclui no arquivo de saida
@@ -115,7 +137,8 @@
     (define (gera-disciplinas-possiveis-bcc linhas)
     (let loop ([linha (linhas)])
       (cond [(equal? linha '()) (print "GERADO 'Arquivo-filtradoBCC.csv' CONTENDO APENAS DISCIPLINAS DO BCC EM POTENCIAL")]
-            [ (displayln (string-join (map ~a (formata-lista linha)) " ") saida2)(loop (next-row-grade))] 
+            [(busca-no-filtro? linha)
+             (displayln (string-join (map ~a (formata-lista linha)) " ") saida2)(loop (next-row-grade))] 
             [else (loop (next-row-grade))])))
 
   
