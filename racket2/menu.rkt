@@ -2,7 +2,6 @@
 
 (provide campus)
 (provide periodo)
-(provide prioridade)
 
 ; Menu - obtém as informacoes do usuario
 
@@ -20,10 +19,3 @@
 (newline)
 (newline)
 
-(printf "Selecione a Prioridade: \n [1]-Disciplinas Menos Avançadas \n [2]-Número de Créditos\n")
-(define prioridade (read-line))
-(display (cond [(= (string->number periodo) 1) "Selecionado: Disciplinas Menos Avançadas \n"]
-                 [else "Selecionado: Número de Créditos \n"]) )
-
-(newline)
-(newline)
