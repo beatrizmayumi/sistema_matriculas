@@ -70,10 +70,6 @@
   (define next-row-grade2
     (make-csv-reader-grade2 (open-input-file (vector-ref args 3))))
 
-    ; ARQUIVO CSV CONTENDO AS DISCIPLINAS FILTRADAS 
-  (define next-row-filtro
-    (make-csv-reader-filtro (open-input-file (vector-ref args 1))))
-
  
   ; ARQUIVO CSV QUE CONTERA O ARQUIVO DE ENTRADA APOS SER FILTRADO: O FILTRO REMOVERA AS DISCIPLINAS JA CURSADAS E AS DISCIPLINAS FORA DO CAMPUS E PERIODO DESEJADO
   (define saida
@@ -102,8 +98,8 @@
   (define per
     (pega-periodo-selecionado periodo))
 
-  (define (filtra-disciplinas-cursadas linha)
-    (""))
+ ; (define (filtra-disciplinas-cursadas linha)
+ ;   (""))
 
   ; RECEBE UMA A UMA AS DISCIPLINAS OFERTADAS E COMPARA COM AS DISCIPLINAS JA CURSADAS (CONTIDAS NO ARQUIVO CSV)
   (define (cursada? linha)
@@ -117,13 +113,13 @@
             [else (loop (next-row-cursadas))])))
 
    (define(busca-no-filtro? linha)
-    (define port-in-filtro (open-input-file (vector-ref args 1)))
+    (define port-in-filtro (open-input-file "Arquivo-filtrado.csv"))
     (define next-row-filtro
       (make-csv-reader-filtro port-in-filtro))
      
     (let loop ([linha-filtro (next-row-filtro)] )
       (cond [(equal? linha-filtro '()) (close-input-port port-in-filtro) #f]
-            [(equal? (seventh linha-filtro) (second linha))#t ]
+            [(equal? (second (string->list (formata-lista2 (car linha-filtro)))) (second (string->list (formata-lista2 (car linha)))))#t ]
             [else (loop (next-row-filtro))])))
   
   
@@ -134,6 +130,26 @@
             [(and (equal? (busca-na-lista linha campus periodo) #t) (not (cursada? linha)))  
              (displayln (string-join (map ~a (formata-lista linha)) " ") saida)(loop (next-row))]  ;ESCREVE NO ARQUIVO FILTRADO
             [else (loop (next-row))])))
+  
+  (newline)
+
+    ; A partir dos parametros informados pelo usuario, filtra apenas as linhas desejadas e inclui no arquivo de saida
+  (define (gera-possiveis-disciplinas2 linhas campus periodo)
+    (let loop ([linha (linhas)])
+      (cond [(equal? linha '()) (print "GERADO 'Arquivo-filtrado.csv' CONTENDO APENAS DISCIPLINAS EM POTENCIAL")]
+            [ (not (cursada? linha)) 
+             (displayln (string-join (map ~a (formata-lista linha)) " ") saida2)(loop (next-row-grade))]  ;ESCREVE NO ARQUIVO FILTRADO
+            [else (loop (next-row-grade))])))
+  
+  (newline)
+
+      ; A partir dos parametros informados pelo usuario, filtra apenas as linhas desejadas e inclui no arquivo de saida
+  (define (gera-possiveis-disciplinas3 linhas campus periodo)
+    (let loop ([linha (linhas)])
+      (cond [(equal? linha '()) (print "GERADO 'Arquivo-filtrado.csv' CONTENDO APENAS DISCIPLINAS EM POTENCIAL")]
+            [ (not (cursada? linha))  
+             (displayln (string-join (map ~a (formata-lista linha)) " ") saida3)(loop (next-row-grade2))]  ;ESCREVE NO ARQUIVO FILTRADO
+            [else (loop (next-row-grade2))])))
   
   (newline)
   
@@ -163,7 +179,7 @@
     (define (gera-disciplinas-possiveis-bcc linhas)
     (let loop ([linha (linhas)])
       (cond [(equal? linha '()) (print "GERADO 'Arquivo-filtradoBCC.csv' CONTENDO APENAS DISCIPLINAS DO BCC EM POTENCIAL")]
-            [(and (busca-no-filtro? linha) (not (cursada? linha)))
+            [(busca-no-filtro? linha)
              (displayln (string-join (map ~a (formata-lista linha)) " ") saida2)(loop (next-row-grade))] 
             [else (loop (next-row-grade))])))
 
@@ -171,16 +187,25 @@
     (define (gera-disciplinas-possiveis-bct linhas)
     (let loop ([linha (linhas)])
       (cond [(equal? linha '()) (print "GERADO 'Arquivo-filtradoBCT.csv' CONTENDO APENAS DISCIPLINAS DO BCT EM POTENCIAL")]
-            [(and (busca-no-filtro? linha) (not (cursada? linha)))
+            [(busca-no-filtro? linha)
              (displayln (string-join (map ~a (formata-lista linha)) " ") saida3)(loop (next-row-grade2))] 
             [else (loop (next-row-grade2))])))
 
   
 
   (gera-possiveis-disciplinas next-row (pega-campus-selecionado campus)(pega-periodo-selecionado periodo))
-  (gera-disciplinas-possiveis-bcc next-row-grade)
-  (gera-disciplinas-possiveis-bct next-row-grade2)
   (close-output-port saida)
+  (gera-possiveis-disciplinas2 next-row-grade (pega-campus-selecionado campus)(pega-periodo-selecionado periodo))
+  (gera-possiveis-disciplinas3 next-row-grade2 (pega-campus-selecionado campus)(pega-periodo-selecionado periodo))
+  
+      ; ARQUIVO CSV CONTENDO AS DISCIPLINAS FILTRADAS
+  (define next-row-filtro
+    (make-csv-reader-filtro (open-input-file "Arquivo-filtrado.csv")))
+  
+  
+  ;(gera-disciplinas-possiveis-bcc next-row-grade)
+  ;(gera-disciplinas-possiveis-bct next-row-grade2)
+
   (close-output-port saida2)
   (close-output-port saida3)
 
@@ -197,10 +222,16 @@
   
   (void))
 
-; Utilizado para remover parenteses no Inicio e Fim da lista antes de incluir no arquivo CSV
+; Utilizado para parenteses no Inicio e Fim da lista antes de incluir no arquivo CSV
 (define (formata-string str)
   (cond [(equal? (string-ref str 0) #\() (string-replace str "(" "")] ;REMOVE PARENTESES NO INICIO
         [(equal? (string-ref str (- (string-length str) 1)) #\)) (string-replace str ")" "") ] ;REMOVE PARENTESES NO FIM
+        [else str]))
+
+; Utilizado para parenteses no Inicio e Fim da lista antes de incluir no arquivo CSV
+(define (formata-lista2 str)
+  (cond [(equal? (string-ref str 0) #\() (string-replace str "\"" "")] ;REMOVE PARENTESES NO INICIO
+        [(equal? (string-ref str (- (string-length str) 1)) #\)) (string-replace str "\"" "") ] ;REMOVE PARENTESES NO FIM
         [else str]))
 
 
