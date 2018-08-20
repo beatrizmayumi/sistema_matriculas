@@ -170,7 +170,7 @@
     ; A partir dos parametros informados pelo usuario, filtra apenas as linhas desejadas e inclui no arquivo de saida
     (define (gera-disciplinas-possiveis-bct linhas)
     (let loop ([linha (linhas)])
-      (cond [(equal? linha '()) (print "GERADO 'Arquivo-filtradoBCC.csv' CONTENDO APENAS DISCIPLINAS DO BCC EM POTENCIAL")]
+      (cond [(equal? linha '()) (print "GERADO 'Arquivo-filtradoBCT.csv' CONTENDO APENAS DISCIPLINAS DO BCT EM POTENCIAL")]
             [(busca-no-filtro? linha)
              (displayln (string-join (map ~a (formata-lista linha)) " ") saida3)(loop (next-row-grade2))] 
             [else (loop (next-row-grade2))])))
