@@ -1,0 +1,26 @@
+Codigo,Disciplina,Creditos,Recomendacao1,Recomendacao2,Recomendacao3,Recomendacao4,Tipo,Quadrimestre
+BIS0005-15,Bases Computacionais da Ciencia,2,,,,,Obrigatoria,1
+BCS0001-15,Base Experimental das Ciencias Naturais,3,,,,,Obrigatoria,1
+BIK0102-15,Estrutura da Materia,3,,,,,Obrigatoria,1
+BIS0003-15,Bases Matematicas,4,,,,,Obrigatoria,1
+BIJ0207-15,Bases Conceituais da Energia,2,,,,,Obrigatoria,1
+BIL0304-15,Evolucao e Diversificacao da Vida na Terra,3,,,,,Obrigatoria,1
+BCM0504-15,Natureza da Informacao,3,Bases Computacionais da Ciencia,,,,Obrigatoria,2
+BCJ0204-15,Fenomenos Mecanicos,5,Geometria Analitica,Funcoes de Uma Variavel,,,Obrigatoria,2
+BCN0404-15,Geometria Analitica,3,Bases Matematicas,,,,Obrigatoria,2
+BCN0402-15,Funcoes de uma Variavel,4,Bases Matematicas,,,,Obrigatoria,2
+BCL0306-15,Biodiversidade: Interacoes entre organismos e ambiente,3,,,,,Obrigatoria,2
+BCM0505-15,Processamento da Informacao,5,Bases Computacionais da Ciencia,,,,Obrigatoria,3
+BCJ0205-15,Fenomenos Termicos,4,Estrutura da Materia,Fenomenos Mecanicos,Funcoes de uma Variavel,,Obrigatoria,3
+BCN0407-15,Funcoes de Varias Variaveis,4,Geometria Analitica,Funcoes de Uma Variavel,,,Obrigatoria,3
+BCL0307-15,Transformacoes Quimicas,5,Estrutura da Materia,,,,Obrigatoria,3
+BCM0506-15,Comunicacao e Redes,3,Processamento da Informacao,,,,Obrigatoria,4
+BCJ0203-15,Fenomenos Eletromagneticos,5,Fenomenos Mecanicos,Geometria Analitica,Introducao às Equacoes Diferenciais,,Obrigatoria,4
+BIN0406-15,Introducao a Probabilidade e a Estatistica,3,Funcoes de uma Variavel,,,,Obrigatoria,4
+BCN0405-15,Introducao as Equacoes Diferenciais Ordinarias,4,Funcoes de Varias Variaveis,,,,Obrigatoria,4
+BIR0004-15,Bases Epistemologicas da Ciencia Moderna,3,,,,,Obrigatoria,4
+BCK0103-15,Fisica Quantica,3,Estrutura da Materia,Fenomenos Mecanicos,Fenomenos Termicos,Fenomenos Eletromagneticos,Obrigatoria,5
+BCL0308-15,"Bioquimica: estrutura, propriedade e funcoes de biomoleculas",5,Estrutura da Materia,Transformacoes Quimicas,,,Obrigatoria,5
+BIQ0602-15,Estrutura e Dinamica Social,3,,,,,Obrigatoria,5
+BCK0104-15,Interacoes Atomicas e Moleculares,3,Transformacoes Quimicas,Fisica Quantica,,,Obrigatoria,6
+BIR0603-15,"Ciencia, Tecnologia e Sociedade",3,,,,,Obrigatoria,6
