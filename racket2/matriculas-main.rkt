@@ -163,7 +163,7 @@
     (define (gera-disciplinas-possiveis-bcc linhas)
     (let loop ([linha (linhas)])
       (cond [(equal? linha '()) (print "GERADO 'Arquivo-filtradoBCC.csv' CONTENDO APENAS DISCIPLINAS DO BCC EM POTENCIAL")]
-            [(busca-no-filtro? linha)
+            [(and (busca-no-filtro? linha) (not (cursada? linha)))
              (displayln (string-join (map ~a (formata-lista linha)) " ") saida2)(loop (next-row-grade))] 
             [else (loop (next-row-grade))])))
 
@@ -171,7 +171,7 @@
     (define (gera-disciplinas-possiveis-bct linhas)
     (let loop ([linha (linhas)])
       (cond [(equal? linha '()) (print "GERADO 'Arquivo-filtradoBCT.csv' CONTENDO APENAS DISCIPLINAS DO BCT EM POTENCIAL")]
-            [(busca-no-filtro? linha)
+            [(and (busca-no-filtro? linha) (not (cursada? linha)))
              (displayln (string-join (map ~a (formata-lista linha)) " ") saida3)(loop (next-row-grade2))] 
             [else (loop (next-row-grade2))])))
 
